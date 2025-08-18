@@ -5,11 +5,11 @@ public class Main {
         Scanner reader = new Scanner(System.in);
         System.out.println("Quadratic equation: ax^2 + bx + c = 0");
         System.out.print("Enter a: ");
-        double a = reader.nextDouble();
+        double a = Double.parseDouble(reader.nextLine());
         System.out.print("Enter b: ");
-        double b = reader.nextDouble();
+        double b = Double.parseDouble(reader.nextLine());
         System.out.print("Enter c: ");
-        double c = reader.nextDouble();
+        double c = Double.parseDouble(reader.nextLine());
         double det = b * b - 4 * a * c;
         double x1 = (-b + Math.sqrt(det)) / (2 * a);
         double x2 = (-b - Math.sqrt(det)) / (2 * a);

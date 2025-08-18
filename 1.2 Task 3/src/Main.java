@@ -4,7 +4,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner reader = new Scanner(System.in);
         System.out.println("Weight (g): ");
-        int weight = reader.nextInt();
+        int weight = Integer.parseInt(reader.nextLine());
         int leiviska = (int) (weight/13.28/32/20);
         double weight2 = (weight - leiviska * 20 * 32* 13.28);
         int naula = (int) ((weight2)/13.28 / 32);
