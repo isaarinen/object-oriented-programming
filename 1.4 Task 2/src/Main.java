@@ -10,7 +10,7 @@ public class Main {
         System.out.print("Enter integer " +(i + 1) +": ");
         array[i] = Integer.parseInt(reader.nextLine());
     }
-    int biggestsum = 0;
+    int biggestsum = Integer.MIN_VALUE;
     int firstint = 0;
     int lastint = 0;
     for (int i = 0; i < array.length; i++) {
