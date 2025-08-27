@@ -1,11 +1,10 @@
 import java.util.HashMap;
-import java.util.ArrayList;
 import java.util.Map;
 import java.util.Objects;
 
 public class GroceryListManager {
     private HashMap<String, Item> groceryList = new HashMap<>();
-    static class Item { ;
+    static class Item {
         double cost;
         String category;
 
