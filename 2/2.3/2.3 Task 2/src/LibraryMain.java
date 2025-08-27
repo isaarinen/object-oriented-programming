@@ -14,6 +14,11 @@ public class LibraryMain {
         library.addBook(book5);
 
         library.displayBooks();
+        library.borrowBook(book1);
+        library.borrowBook(book3);
+        library.displayBooks();
+        library.returnBook(book3);
+        library.displayBooks();
         library.findBooksByAuthor("Author 3");
 
     }
