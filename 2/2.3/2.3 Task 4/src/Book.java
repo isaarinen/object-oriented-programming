@@ -12,6 +12,7 @@ public class Book {
         this.author = author;
         this.year = year;
         this.reviews = new ArrayList<>();
+        this.rating = -1;
     }
     public String getTitle() {
         return this.title;

@@ -18,6 +18,8 @@ public class LibraryMain {
             book2.addReview("Good.");
         }
 
+        User user1 = new User("User", 55);
+
         library.addBook(book1);
         library.addBook(book2);
         library.addBook(book3);
@@ -25,10 +27,10 @@ public class LibraryMain {
         library.addBook(book5);
 
         library.displayBooks();
-        library.borrowBook(book1);
-        library.borrowBook(book3);
+        library.borrowBook(book1, user1);
+        library.borrowBook(book3, user1);
         library.displayBooks();
-        library.returnBook(book3);
+        library.returnBook(book3, user1);
         library.displayBooks();
         System.out.println(library.isBookAvailable(book1));
         System.out.println(library.isBookAvailable(book3));

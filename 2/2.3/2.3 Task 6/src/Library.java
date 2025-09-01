@@ -1,6 +1,9 @@
 import java.util.ArrayList;
+import java.util.HashMap;
+
 public class Library {
     private ArrayList<Book> books = new ArrayList<>();
+    private HashMap<Book, User> borrowedBooks = new HashMap<>();
 
     public void addBook(Book book) {
         books.add(book);
@@ -22,11 +25,15 @@ public class Library {
             }
         }
     }
-    public void borrowBook(Book book) {
+    public void borrowBook(Book book, User user) {
         books.remove(book);
+        user.addBook(book);
+        borrowedBooks.put(book, user);
     }
-    public void returnBook(Book book) {
+    public void returnBook(Book book, User user) {
         books.add(book);
+        user.removeBook(book);
+        borrowedBooks.remove(book);
     }
     public double getAverageBookRating() {
         if (books.isEmpty()) {
