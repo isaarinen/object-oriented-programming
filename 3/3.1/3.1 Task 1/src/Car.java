@@ -1,0 +1,99 @@
+/* Define a class Car (convention capitalizes class names).
+ * Car is public (as classes usually are, more on this later).
+ */
+public class Car {
+    /* An object of class Car will have instance variables speed and gasolineLevel.
+     * Both are private (they can not be accessed outside the class methods).
+     * Keep instance variables private whenever possible.
+     */
+    private double speed;
+    private double gasolineLevel;
+    private String typeName;
+    public double targetSpeed;
+    private boolean cruiseAccelerating;
+    public boolean cruiseControl;
+
+    /* This is the method (constructor) called when a new instance of Car is created (with new).
+     * Constructors may also have arguments.
+     */
+    public Car(String typeName) {
+        speed = 0; gasolineLevel = 0;
+        this.typeName = typeName;   // this refers to the object itself.
+        // The reference is useful if you want to use parameter names that are
+        // identical to instance variable names (and for more, later on)
+    }
+
+    public void gasCar(double gasolineLevel, double speed) {
+        this.gasolineLevel = gasolineLevel;
+        this.speed = speed;
+    }
+
+    public void setTargetSpeed(double targetSpeed) {
+        this.targetSpeed = targetSpeed;
+    }
+
+    public boolean cruiseControl() {
+        if (this.targetSpeed > this.speed) {
+            this.cruiseAccelerating = true;
+            this.cruiseControl = true;
+        }
+        else if (this.targetSpeed < this.speed) {
+            this.cruiseAccelerating = false;
+            this.cruiseControl = true;
+        }
+        else {
+            this.cruiseControl = false;
+            return this.cruiseControl;
+        }
+        while (this.cruiseControl) {
+            if (cruiseAccelerating) {
+                if (this.speed < this.targetSpeed) {
+                    this.accelerate();
+                }
+                else {
+                    this.cruiseControl = false;
+                }
+            }
+            else {
+                if (this.speed > this.targetSpeed) {
+                    if (this.speed < this.targetSpeed) {
+                        this.decelerate(1);
+                    }
+                    else {
+                        this.cruiseControl = false;
+                    }
+                }
+            }
+        }
+        return true;
+    }
+    /* Implementations of some methods.
+     * Note that methods refer to and change instance variable values.
+     */
+    public void accelerate() {
+        if (gasolineLevel > 0)
+            speed += 10;
+        else
+            speed = 0;
+    }
+    void decelerate(int amount) {
+        if (gasolineLevel > 0) {
+            if (amount > 0)
+                speed = Math.max(0, speed - amount);
+        } else
+            speed = 0;
+    }
+    double getSpeed() {
+        return speed;
+    }
+    String getTypeName() {
+        return typeName;
+    }
+    void fillTank() {
+        gasolineLevel = 100;
+    }
+    double getGasolineLevel() {
+        return gasolineLevel;
+    }
+}
+
